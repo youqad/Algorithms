@@ -1,0 +1,19 @@
+---
+commandline:
+    latex-engine: "`lualatex`"
+    table-of-contents: true
+title: "TD10 : flux d'information sûrs"
+author:
+- 'Younesse Kaddar'
+date: 2016-09-14
+documentclass: article
+tags:
+    - TD6
+    - TD
+    - sémantique
+    - info
+    - programmation
+    - L3
+    - Halfon
+abstract: 'TD Programmation'
+---
