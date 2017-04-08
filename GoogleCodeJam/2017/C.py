@@ -23,7 +23,7 @@ for N, K in lines:
                 break
             m = q.pop()
         q.append(maxi)
-        q.extend(L)
+        q.extend(L[::-1])
         q.append(mini)
     print("Case #"+str(i)+": "+str(maxi)+" "+str(mini))
     i += 1

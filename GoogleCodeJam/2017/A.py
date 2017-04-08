@@ -17,17 +17,17 @@ def count_min(s, K):
     n = len(s)+1
     if '-' not in s:
         return 0
-    elif K >= n-1:
+    elif '+' in s and K >= n-1:
         return -1
     q = deque([(s, 0)])
     stop = False
     already_seen = {s}
     found = -1
-    while not stop and q:
+    while (not stop) and q:
         u, depth = q.popleft()
         for i in range(K, n):
             new = u[:i-K]+''.join(inverse(j) for j in u[i-K:i])+u[i:]
-            print(new)
+            # print(new)
             if '-' not in new:
                 found = depth+1
                 stop = True
