@@ -2,20 +2,18 @@ import sys
 
 sequence = ['0', '1']
 
-
 def generate_seq(k):
-    global sequence
+    global sequence, count
+    lgk = floor(log2(k+2))
     l = len(sequence[-1])
     lim = 2**l
-    n = len(sequence)
-    while k > n:
+    while k > l:
         L0 = [c+'0' for c in sequence[-lim:]]
         L1 = [c+'1' for c in sequence[-lim:]]
         sequence.extend(L0)
         sequence.extend(L1)
         l += 1
         lim *= 2
-        n += 2*lim
     return sequence[k]
 
 
