@@ -15,6 +15,7 @@ for N, K in lines:
     for _ in range(1, K):
         n = q.popleft()
         maxi, mini = n//2, (n-1)//2
-        q.extend([n//2, (n-1)//2])
+        m = q.pop()
+        q.extend([max(m, maxi), min(m, maxi), (n-1)//2])
     print("Case #"+str(i)+": "+str(maxi)+" "+str(mini))
     i += 1
