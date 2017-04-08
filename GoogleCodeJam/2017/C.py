@@ -19,6 +19,8 @@ for N, K in lines:
         L = []
         while m < maxi:
             L.append(m)
+            if not q:
+                break
             m = q.pop()
         q.append(maxi)
         q.extend(L)
