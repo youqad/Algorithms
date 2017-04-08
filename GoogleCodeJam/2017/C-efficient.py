@@ -2,19 +2,19 @@ import sys
 
 sequence = ['0', '1']
 
-def generate_seq(k):
-    global sequence, count
-    lgk = floor(log2(k+2))
-    l = len(sequence[-1])
-    lim = 2**l
-    while k > l:
-        L0 = [c+'0' for c in sequence[-lim:]]
-        L1 = [c+'1' for c in sequence[-lim:]]
-        sequence.extend(L0)
-        sequence.extend(L1)
-        l += 1
-        lim *= 2
-    return sequence[k]
+
+# def generate_seq(k):
+#     global sequence
+#     lim = 2**len(sequence[-1])
+#     n = len(sequence)
+#     while k >= n:
+#         L0 = [c+'0' for c in sequence[-lim:]]
+#         L1 = [c+'1' for c in sequence[-lim:]]
+#         sequence.extend(L0)
+#         sequence.extend(L1)
+#         n += 2*lim
+#         lim *= 2
+#     return sequence[k]
 
 
 lines = []
@@ -34,7 +34,7 @@ for N, K in lines:
         i += 1
         continue
     n = N
-    for j in generate_seq(K-2):
+    for j in "{0:b}".format(K)[:0:-1]:
         if int(j):
             n -= 1
         n //= 2
