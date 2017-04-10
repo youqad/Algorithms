@@ -1,5 +1,5 @@
 import sys
-from collections import deque
+from heapq import heapify, heappop, heappush
 
 lines = []
 i = 0
@@ -11,19 +11,13 @@ for line in sys.stdin:
 
 for N, K in lines:
     maxi, mini = (N//2), ((N-1)//2)
-    q = deque([maxi, mini])
+    h = []
+    heappush(h, -maxi)
+    heappush(h, -mini)
     for _ in range(1, K):
-        n = q.popleft()
-        maxi, mini = n//2, (n-1)//2
-        m = q.pop()
-        L = []
-        while m < maxi:
-            L.append(m)
-            if not q:
-                break
-            m = q.pop()
-        q.append(maxi)
-        q.extend(L[::-1])
-        q.append(mini)
+        n = -heappop(h)
+        maxi, mini = (n//2), ((n-1)//2)
+        heappush(h, -maxi)
+        heappush(h, -mini)
     print("Case #"+str(i)+": "+str(maxi)+" "+str(mini))
     i += 1
