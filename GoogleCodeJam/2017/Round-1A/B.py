@@ -29,19 +29,27 @@ for _ in range(T):
                 if not local_test:
                     if not stop:
                         stop = True
-                    elif stop:
+                    elif not stop2:
+                        stop2 = True
+                    else:
                         cont = False
+                else:
+                    cont = True
+                    stop = False
+                    stop2 = False
 
             K[n][p] = sk
     count = 0
     Set = reduce(set.intersection, [reduce(set.union, l) for l in K])
     while Set:
-        k = Set.pop()
+        k = next(iter(Set))
         for n in range(N):
             for p in range(P):
                 if k in K[n][p]:
                     K[n][p] = set()
                     break
+            else:
+                raise NameError('P problem')
         count += 1
         Set = reduce(set.intersection, [reduce(set.union, l) for l in K])
 
